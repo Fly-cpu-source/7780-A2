@@ -11,35 +11,60 @@ Make sure these are installed on your computer:
 
 ---
 
-## Step 1 — Set Up the Database
+## Step 1 — Open CMD
 
-1. Open **MySQL Workbench** (or MySQL command line)
-2. Log in with:
-   - Username: `user99`
-   - Password: `user99`
-3. Run these 3 SQL files **one by one, in this order**:
-   - Open `SQL/create_user.sql` → click Run
-   - Open `SQL/create_db.sql` → click Run
-   - Open `SQL/create_tables.sql` → click Run
+1. Press **Win + R** on your keyboard
+2. Type `cmd` and press **Enter**
+3. A black window (Command Prompt) will open
 
 ---
 
-## Step 2 — Install Project Dependencies
+## Step 2 — Set Up the Database
 
-1. Open the **project folder** in File Explorer
-2. Click the address bar at the top, type `cmd`, press Enter
-   - This opens a black command window
-3. Type the following and press Enter:
-   ```
-   npm install
-   ```
-4. Wait until it finishes (you'll see a blinking cursor again)
+In the CMD window, type these commands **one by one** and press Enter each time:
+
+```
+mysql -u user99 -puser99 < "C:\path\to\code\SQL\create_user.sql"
+mysql -u user99 -puser99 < "C:\path\to\code\SQL\create_db.sql"
+mysql -u user99 -puser99 < "C:\path\to\code\SQL\create_tables.sql"
+```
+
+> **Note:** Replace `C:\path\to\code` with the actual folder path where you saved this project.
+> For example: `C:\Users\YourName\Desktop\code\SQL\create_user.sql`
+
+No error message = success. You can continue.
 
 ---
 
-## Step 3 — Start the Website
+## Step 3 — Go to the Project Folder
 
-In the same command window, type:
+In CMD, navigate to the project folder:
+
+```
+cd C:\path\to\code
+```
+
+> Replace `C:\path\to\code` with your actual folder path.
+> For example: `cd C:\Users\YourName\Desktop\code`
+
+---
+
+## Step 4 — Install Dependencies
+
+In CMD, type:
+
+```
+npm install
+```
+
+Wait until it finishes. You'll see a blinking cursor again when it's done.
+
+---
+
+## Step 5 — Start the Website
+
+In the same CMD window, type:
+
 ```
 node index.js
 ```
@@ -49,11 +74,11 @@ You should see:
 Server is running on port 3000
 ```
 
-**Leave this window open** — closing it will stop the website.
+**Leave this CMD window open** — closing it will stop the website.
 
 ---
 
-## Step 4 — Open the Website
+## Step 6 — Open the Website
 
 Open your browser (Chrome / Edge) and go to:
 ```
@@ -64,28 +89,32 @@ http://localhost:3000
 
 ## Testing Checklist
 
-Go through each item below and tick if it works:
+Go through each item and check if it works:
 
-- [ ] **Home page loads** at `http://localhost:3000`
+- [ ] Home page loads at `http://localhost:3000`
 - [ ] Clicking **Order Now** goes to the product page
 - [ ] Product page shows 3 dishes with prices
 - [ ] Select a customer from the dropdown (e.g. `cust1`)
 - [ ] Click **Add to Cart** on any dish — a popup says "Added to cart"
-- [ ] Click **Checkout** — PayPal page appears
-- [ ] In MySQL Workbench, run `SELECT * FROM cart;` — new rows appear with the correct order info
+- [ ] Click **Checkout** — PayPal payment page appears
+- [ ] Open a **new CMD window** and run the command below to verify the order was saved:
+  ```
+  mysql -u user99 -puser99 -e "USE comp7780; SELECT * FROM cart;"
+  ```
+  You should see your order in the results.
 
 ---
 
 ## Test Accounts
 
-Use any of these customer names in the dropdown:
+Use any of these in the customer dropdown:
 
-| Customer | Username |
-|---|---|
-| Customer 1 | `cust1` |
-| Customer 2 | `cust2` |
-| Customer 3 | `cust3` |
-| Customer 4 | `cust4` |
+| Username |
+|---|
+| `cust1` |
+| `cust2` |
+| `cust3` |
+| `cust4` |
 
 ---
 
@@ -93,7 +122,8 @@ Use any of these customer names in the dropdown:
 
 | Problem | Fix |
 |---|---|
-| `npm install` gives error | Make sure Node.js is installed. Re-download from nodejs.org |
+| `mysql` is not recognized | Add MySQL to PATH, or use full path: `"C:\Program Files\MySQL\MySQL Server 8.0\bin\mysql.exe"` |
+| `npm install` gives error | Make sure Node.js is installed. Download from nodejs.org |
 | `node index.js` gives error | Run `npm install` first, then try again |
-| Page won't open | Make sure the command window is still open and showing "running on port 3000" |
-| Database error | Make sure all 3 SQL files were run in the correct order |
+| Page won't open | Make sure CMD is still open and showing "running on port 3000" |
+| Database error on SQL files | Run the 3 SQL files again in the correct order |
