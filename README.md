@@ -6,8 +6,12 @@
 ## Before You Start
 
 Make sure these are installed on your computer:
-- [Node.js](https://nodejs.org) — download and install the LTS version
-- MySQL 8.0 — should already be installed for this course
+- **Node.js** — open CMD and run:
+  ```
+  winget install OpenJS.NodeJS.LTS
+  ```
+  Wait for it to finish, then **close and reopen CMD**.
+- **MySQL 8.0** — should already be installed for this course
 
 ---
 
