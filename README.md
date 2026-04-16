@@ -28,13 +28,12 @@ Make sure these are installed on your computer:
 In the CMD window, type these commands **one by one** and press Enter each time:
 
 ```
-mysql -u user99 -puser99 < "C:\path\to\code\SQL\create_user.sql"
-mysql -u user99 -puser99 < "C:\path\to\code\SQL\create_db.sql"
-mysql -u user99 -puser99 < "C:\path\to\code\SQL\create_tables.sql"
+mysql -u user99 -puser99 < "C:\Users\26764\Desktop\7780\Assignments-20260410\Assignment 2\assignment2 project\cycle3\code\SQL\create_user.sql"
+mysql -u user99 -puser99 < "C:\Users\26764\Desktop\7780\Assignments-20260410\Assignment 2\assignment2 project\cycle3\code\SQL\create_db.sql"
+mysql -u user99 -puser99 < "C:\Users\26764\Desktop\7780\Assignments-20260410\Assignment 2\assignment2 project\cycle3\code\SQL\create_tables.sql"
 ```
 
-> **Note:** Replace `C:\path\to\code` with the actual folder path where you saved this project.
-> For example: `C:\Users\YourName\Desktop\code\SQL\create_user.sql`
+> **Note:** Replace the path above with the actual folder path where you saved this project.
 
 No error message = success. You can continue.
 
@@ -45,11 +44,10 @@ No error message = success. You can continue.
 In CMD, navigate to the project folder:
 
 ```
-cd C:\path\to\code
+cd "C:\Users\26764\Desktop\7780\Assignments-20260410\Assignment 2\assignment2 project\cycle3\code"
 ```
 
-> Replace `C:\path\to\code` with your actual folder path.
-> For example: `cd C:\Users\YourName\Desktop\code`
+> Replace the path above with your own folder path.
 
 ---
 
