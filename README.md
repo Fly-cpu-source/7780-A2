@@ -45,10 +45,16 @@ Run these 3 commands **one by one** in CMD:
 "C:\Program Files\MySQL\MySQL Server 8.0\bin\mysql.exe" -u user99 -puser99 < "C:\Users\26764\Desktop\7780\Assignments-20260410\Assignment 2\assignment2 project\cycle3\code\SQL\create_db.sql"
 ```
 ```
-"C:\Program Files\MySQL\MySQL Server 8.0\bin\mysql.exe" -u user99 -puser99 < "C:\Users\26764\Desktop\7780\Assignments-20260410\Assignment 2\assignment2 project\cycle3\code\SQL\create_tables.sql"
+"C:\Program Files\MySQL\MySQL Server 8.0\bin\mysql.exe" -u user99 -puser99 --force < "C:\Users\26764\Desktop\7780\Assignments-20260410\Assignment 2\assignment2 project\cycle3\code\SQL\create_tables.sql"
 ```
 
-No error message = success.
+> `--force` is required for `create_tables.sql` — the file drops tables before creating them, which causes an error on a fresh database. `--force` tells MySQL to ignore the error and continue.
+
+No error message = success. Verify with:
+```
+"C:\Program Files\MySQL\MySQL Server 8.0\bin\mysql.exe" -u user99 -puser99 -e "USE comp7780; SHOW TABLES;"
+```
+You should see 8 tables listed.
 
 ---
 
